@@ -40,6 +40,7 @@ public class CreateJigawPieces : MonoBehaviour
 				newImage.sprite = newSprite;
 				piece.AddComponent<Drag>();
 				piece.GetComponent<RectTransform>().SetParent(slot.transform, false);
+				piece.GetComponent<RectTransform>().sizeDelta = new Vector2(Cartoon.width, Cartoon.height);
 				piece.tag = "Piece";
 			}
 		}
@@ -57,6 +58,7 @@ public class CreateJigawPieces : MonoBehaviour
 		newImage.color = newColor;
 
 		slot.AddComponent<Drop>();
+		slot.GetComponent<RectTransform>().localScale = new Vector3((float)width / 100.0f, (float)height / 100.0f, 1.0f);
 		slot.tag = "Slot";
 
 		return slot;
@@ -66,14 +68,18 @@ public class CreateJigawPieces : MonoBehaviour
 	void Board(int width, int height)
 	{
 		GameObject board = GameObject.FindGameObjectWithTag("Board");
-		board.GetComponent<GridLayoutGroup>().cellSize = new Vector2(width, height);
+		board.GetComponent<GridLayoutGroup>().cellSize = new Vector2(Cartoon.width, Cartoon.height);
+
+		float boardLRTB = 384.0f;
+		float spacing = 5.0f;
+		board.GetComponent<GridLayoutGroup>().spacing = new Vector2 (-(boardLRTB/10.0f) + spacing , -(boardLRTB/10.0f) + spacing);
 
 		int totalNumberofPieces = Rows * Columns;
 
 		for (int i = 0; i < totalNumberofPieces; i++)
 		{
 			GameObject slot = CreateSlot(width, height);
-			slot.GetComponent<RectTransform>().SetParent(board.transform, false);
+			slot.GetComponent<RectTransform>().SetParent(board.GetComponent<RectTransform>(), false);
 		}
 	}
 
