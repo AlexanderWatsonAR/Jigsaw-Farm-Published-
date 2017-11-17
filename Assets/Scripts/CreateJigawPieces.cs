@@ -16,7 +16,7 @@ public class CreateJigawPieces : MonoBehaviour
 		int width = Cartoon.width / Columns;
 
 		// Adjusts the layout of the area according to the size & number of the jigsaw pieces.
-		GridLayoutGroup grid = this.GetComponent<GridLayoutGroup>();
+		GridLayoutGroup grid = GetComponent<GridLayoutGroup>();
 		grid.cellSize = new Vector2(Cartoon.width, Cartoon.height);
 		grid.spacing = new Vector2(width, height);
 
@@ -30,8 +30,8 @@ public class CreateJigawPieces : MonoBehaviour
 				GameObject slot = CreateSlot(width, height);
 				slot.GetComponent<RectTransform>().SetParent(gameObject.transform, false);
 				// Points within the source texture to draw from.
-				int xSpriteIndex = i*width;
-				int ySpriteIndex = j*height;
+				float xSpriteIndex = i*width;
+				float ySpriteIndex = j*height;
 
 				Sprite newSprite = Sprite.Create(Cartoon, new Rect(xSpriteIndex, ySpriteIndex, width, height), new Vector2());
 
@@ -39,8 +39,9 @@ public class CreateJigawPieces : MonoBehaviour
 				Image newImage = piece.AddComponent<Image>();
 				newImage.sprite = newSprite;
 				piece.AddComponent<Drag>();
+				piece.AddComponent<CanvasGroup>();
 				piece.GetComponent<RectTransform>().SetParent(slot.transform, false);
-				piece.GetComponent<RectTransform>().sizeDelta = new Vector2(Cartoon.width, Cartoon.height);
+
 				piece.tag = "Piece";
 			}
 		}
@@ -58,9 +59,13 @@ public class CreateJigawPieces : MonoBehaviour
 		newImage.color = newColor;
 
 		slot.AddComponent<Drop>();
-		slot.GetComponent<RectTransform>().localScale = new Vector3((float)width / 100.0f, (float)height / 100.0f, 1.0f);
+		slot.GetComponent<RectTransform>().localScale = new Vector3(((float)width / 100.0f), ((float)height / 100.0f), 1.0f);
 		slot.tag = "Slot";
 
+		slot.AddComponent<HorizontalLayoutGroup>();
+		slot.GetComponent<HorizontalLayoutGroup>().childAlignment = TextAnchor.MiddleCenter;
+		slot.GetComponent<HorizontalLayoutGroup>().childForceExpandWidth = true;
+		slot.GetComponent<HorizontalLayoutGroup>().childForceExpandHeight = true;
 		return slot;
 	}
 
@@ -70,6 +75,7 @@ public class CreateJigawPieces : MonoBehaviour
 		GameObject board = GameObject.FindGameObjectWithTag("Board");
 		board.GetComponent<GridLayoutGroup>().cellSize = new Vector2(Cartoon.width, Cartoon.height);
 
+		// NOTE: Board spacing configureation hard coded and only works on 3x3 grid.
 		float boardLRTB = 384.0f;
 		float spacing = 5.0f;
 		board.GetComponent<GridLayoutGroup>().spacing = new Vector2 (-(boardLRTB/10.0f) + spacing , -(boardLRTB/10.0f) + spacing);

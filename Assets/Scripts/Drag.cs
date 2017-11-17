@@ -7,7 +7,6 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
 	Transform startParent;
 	Vector3 startPosition;
-	Vector3 offsetToMouse;
 	float zDistanceToCamera;
 
 	#region Interface Implementations
@@ -18,24 +17,22 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 		startPosition = transform.position;
 		startParent = transform.parent;
 		zDistanceToCamera = Mathf.Abs (startPosition.z - Camera.main.transform.position.z);
-		offsetToMouse = startPosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistanceToCamera));
+		GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}
 	
 	public void OnDrag (PointerEventData eventData)
 	{
 		if(Input.touchCount > 1)
 			return;
-		transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistanceToCamera))+ offsetToMouse;
+		transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistanceToCamera));
 	}
 	
 	public void OnEndDrag (PointerEventData eventData)
 	{
 		ItemBeingDragged = null;
-		offsetToMouse = Vector3.zero;
+		GetComponent<CanvasGroup>().blocksRaycasts = true;
 		if (transform.parent == startParent)
-		{
 			transform.position = startPosition;
-		}
 	}
 	
 	#endregion
