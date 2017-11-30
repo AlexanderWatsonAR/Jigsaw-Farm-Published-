@@ -17,7 +17,8 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 		startPosition = transform.position;
 		startParent = transform.parent;
 		zDistanceToCamera = Mathf.Abs (startPosition.z - Camera.main.transform.position.z);
-		GetComponent<CanvasGroup>().blocksRaycasts = false;
+		if(GetComponent<CanvasGroup>() != null)
+			GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}
 	
 	public void OnDrag (PointerEventData eventData)
@@ -30,7 +31,8 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 	public void OnEndDrag (PointerEventData eventData)
 	{
 		ItemBeingDragged = null;
-		GetComponent<CanvasGroup>().blocksRaycasts = true;
+		if(GetComponent<CanvasGroup>() != null)
+			GetComponent<CanvasGroup>().blocksRaycasts = true;
 		if (transform.parent == startParent)
 			transform.position = startPosition;
 	}

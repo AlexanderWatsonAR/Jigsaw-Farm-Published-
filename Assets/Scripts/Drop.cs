@@ -9,7 +9,7 @@ public class Drop : MonoBehaviour , IDropHandler
 		get
 		{
 			// If the slot has more than one child then return the first child.
-			if (transform.childCount > 0)
+			if(transform.childCount > 0)
 				return transform.GetChild(0).gameObject;
 			return null;
 		}
@@ -18,9 +18,8 @@ public class Drop : MonoBehaviour , IDropHandler
 	#region IdropHandler implementation
 	public void OnDrop(PointerEventData eventData)
 	{
-		if (!item)
+		if(!item)
 			Drag.ItemBeingDragged.transform.SetParent(transform);
 	}
 	#endregion
-	
 }﻿

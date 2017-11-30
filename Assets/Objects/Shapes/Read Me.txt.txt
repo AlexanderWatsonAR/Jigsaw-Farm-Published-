@@ -1,0 +1,3 @@
+Each folder contains meshes, each mesh is a 2D shape.
+Each folder contains a set of the same 2D shapes but the
+mesh has different texcoords corresponding to each quadrant of an given texture.
