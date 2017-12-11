@@ -18,7 +18,9 @@ public class Drop : MonoBehaviour , IDropHandler
 	#region IdropHandler implementation
 	public void OnDrop(PointerEventData eventData)
 	{
-		if(!item)
+		if(!item && tag == "Untagged" && Drag.ItemBeingDragged.tag == "Untagged")
+			Drag.ItemBeingDragged.transform.SetParent(transform);
+		else if(!item && tag == Drag.ItemBeingDragged.tag)
 			Drag.ItemBeingDragged.transform.SetParent(transform);
 	}
 	#endregion
