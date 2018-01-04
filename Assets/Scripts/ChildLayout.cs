@@ -8,7 +8,6 @@ public class ChildLayout : MonoBehaviour
 	{
 		if (transform.childCount <= 0)
 			return;
-
 		transform.GetChild(0).transform.localPosition = new Vector3();
 	}
 }
