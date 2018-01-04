@@ -41,8 +41,6 @@ public class CreateJigawPieces : MonoBehaviour
 				piece.AddComponent<Drag>();
 				piece.AddComponent<CanvasGroup>();
 				piece.GetComponent<RectTransform>().SetParent(slot.transform, false);
-
-				piece.tag = "Piece";
 			}
 		}
 	}
@@ -60,7 +58,6 @@ public class CreateJigawPieces : MonoBehaviour
 
 		slot.AddComponent<Drop>();
 		slot.GetComponent<RectTransform>().localScale = new Vector3(((float)width / 100.0f), ((float)height / 100.0f), 1.0f);
-		slot.tag = "Slot";
 
 		slot.AddComponent<HorizontalLayoutGroup>();
 		slot.GetComponent<HorizontalLayoutGroup>().childAlignment = TextAnchor.MiddleCenter;
