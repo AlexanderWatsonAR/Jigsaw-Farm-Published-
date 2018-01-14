@@ -3,30 +3,25 @@ using System.Collections;
 
 public class GenerateRandomModel : MonoBehaviour 
 {
-	public GameObject piece;
-	public Mesh[] models;
-	public Material[] materials;
-	public Material background;
+	public GameObject Parent;
+	public GameObject Piece;
+	public Mesh[] Models;
 
 	// Use this for initialization
 	void Start () 
 	{
-		gameObject.AddComponent<MeshFilter>();
-		gameObject.AddComponent<MeshRenderer>();
-		MeshFilter slotMeshFilter = GetComponent<MeshFilter>();
-		int index = (int)Random.Range(0.0f, (float)models.Length);
-		slotMeshFilter.mesh = models[index];
-		string tag = slotMeshFilter.mesh.name;
-		tag = tag.Remove (0, tag.LastIndexOf ('_') + 1);
-		tag = tag.Remove (tag.LastIndexOf(' '));
+		int index = Random.Range(0, Models.Length - 1);
+		Mesh model = Models[index];
+		gameObject.GetComponent<MeshFilter>().sharedMesh = model;
+		string tag = model.name;
+		tag = tag.Remove(0, tag.LastIndexOf('_') + 1);
 		gameObject.tag = tag;
-		gameObject.GetComponent<MeshRenderer>().material = new Material(background);
+		Parent.tag = tag;
 
-		piece.AddComponent<MeshFilter>();
-		piece.AddComponent<MeshRenderer>();
-		MeshFilter pieceMeshFilter = piece.GetComponent<MeshFilter>();
-		pieceMeshFilter.mesh = slotMeshFilter.mesh;
-		piece.tag = tag;
-		piece.GetComponent<MeshRenderer>().material = new Material(materials[0]);
+		Piece.GetComponent<MeshFilter>().sharedMesh = model;
+		Piece.GetComponent<MeshRenderer>().material = new Material(GameObject.FindGameObjectWithTag("Board").GetComponent<MeshRenderer>().material);
+//		int sortNumber = int.Parse(Piece.name.Remove(0, Piece.name.LastIndexOf(' ') + 1));
+//		Piece.GetComponent<MeshRenderer>().sortingOrder = sortNumber;
+		Piece.tag = tag;
 	}
 }
