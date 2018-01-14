@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GenerateRandomModel : MonoBehaviour 
+public class AssignRandomShape : MonoBehaviour 
 {
 	public GameObject Parent;
 	public GameObject Piece;
@@ -20,8 +20,6 @@ public class GenerateRandomModel : MonoBehaviour
 
 		Piece.GetComponent<MeshFilter>().sharedMesh = model;
 		Piece.GetComponent<MeshRenderer>().material = new Material(GameObject.FindGameObjectWithTag("Board").GetComponent<MeshRenderer>().material);
-//		int sortNumber = int.Parse(Piece.name.Remove(0, Piece.name.LastIndexOf(' ') + 1));
-//		Piece.GetComponent<MeshRenderer>().sortingOrder = sortNumber;
 		Piece.tag = tag;
 	}
 }
