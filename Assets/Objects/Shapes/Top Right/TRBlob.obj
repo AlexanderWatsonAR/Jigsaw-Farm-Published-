@@ -1,7 +1,7 @@
 # Blender v2.77 (sub 0) OBJ File: ''
 # www.blender.org
 mtllib TRBlob.mtl
-o Blob
+g Top_Right_Blob
 v -0.252037 0.805477 -0.000100
 v 0.608621 -0.203269 -0.000100
 v -0.489555 -0.498165 -0.000100
