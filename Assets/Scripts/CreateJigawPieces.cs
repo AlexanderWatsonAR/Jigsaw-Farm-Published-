@@ -39,6 +39,7 @@ public class CreateJigawPieces : MonoBehaviour
 				Image newImage = piece.AddComponent<Image>();
 				newImage.sprite = newSprite;
 				piece.AddComponent<Drag>();
+				piece.GetComponent<Drag>().ZPositionOnDrag = piece.transform.position.z;
 				piece.AddComponent<CanvasGroup>();
 				piece.GetComponent<RectTransform>().SetParent(slot.transform, false);
 			}
@@ -57,12 +58,14 @@ public class CreateJigawPieces : MonoBehaviour
 		newImage.color = newColor;
 
 		slot.AddComponent<Drop>();
+		slot.GetComponent<Drop> ().MaximumNumberOfChildren = 1;
 		slot.GetComponent<RectTransform>().localScale = new Vector3(((float)width / 100.0f), ((float)height / 100.0f), 1.0f);
 
 		slot.AddComponent<HorizontalLayoutGroup>();
 		slot.GetComponent<HorizontalLayoutGroup>().childAlignment = TextAnchor.MiddleCenter;
 		slot.GetComponent<HorizontalLayoutGroup>().childForceExpandWidth = true;
 		slot.GetComponent<HorizontalLayoutGroup>().childForceExpandHeight = true;
+
 		return slot;
 	}
 
@@ -72,7 +75,7 @@ public class CreateJigawPieces : MonoBehaviour
 		GameObject board = GameObject.FindGameObjectWithTag("Board");
 		board.GetComponent<GridLayoutGroup>().cellSize = new Vector2(Cartoon.width, Cartoon.height);
 
-		// NOTE: Board spacing configureation hard coded and only works on 3x3 grid.
+		// NOTE: Board spacing configuration hard coded and only works on 3x3 grid.
 		float boardLRTB = 384.0f;
 		float spacing = 5.0f;
 		board.GetComponent<GridLayoutGroup>().spacing = new Vector2 (-(boardLRTB/10.0f) + spacing , -(boardLRTB/10.0f) + spacing);
