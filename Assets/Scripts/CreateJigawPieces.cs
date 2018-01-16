@@ -16,8 +16,8 @@ public class CreateJigawPieces : MonoBehaviour
 	void Awake ()
 	{
 		// Defines the size of each jigsaw piece.
-		rows = 3;
-		columns = 3;
+		rows = GetComponent<GridLayoutGroup>().constraintCount;
+		columns = rows;
 		cartoon = Textures [Random.Range (0, Textures.Length)]; // Grabs Random texture.
 
 		height = cartoon.height / rows;
