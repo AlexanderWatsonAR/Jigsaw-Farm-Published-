@@ -33,6 +33,12 @@ public class CreateJigawPieces : MonoBehaviour
 			}
 		}
 
+		int flipACoin = Random.Range (0, 3);
+
+		if (flipACoin == 0)
+			GetComponent<GridLayoutGroup> ().startCorner = GridLayoutGroup.Corner.LowerRight;
+		if (flipACoin == 1)
+			GetComponent<GridLayoutGroup> ().startCorner = GridLayoutGroup.Corner.UpperRight;
 	}
 
 	GameObject CreatePiece(float xSpriteIndex, float ySpriteIndex)
@@ -43,7 +49,7 @@ public class CreateJigawPieces : MonoBehaviour
 		Image newImage = piece.AddComponent<Image>();
 		newImage.sprite = newSprite;
 		piece.AddComponent<Drag>();
-		piece.GetComponent<Drag>().ZPositionOnDrag = piece.transform.position.z;
+		piece.GetComponent<Drag>().ZPositionOnDrag = -1;
 		piece.AddComponent<CanvasGroup>();
 		return piece;
 	}
