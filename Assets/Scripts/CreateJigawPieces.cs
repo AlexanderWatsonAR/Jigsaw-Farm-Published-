@@ -12,16 +12,28 @@ public class CreateJigawPieces : MonoBehaviour
 	private int rows;
 	private int height;
 	private int width;
+
+	public Texture2D Cartoon
+	{
+		get
+		{
+			if(cartoon == null)
+			{
+				cartoon = Textures [Random.Range (0, Textures.Length)]; // Grabs Random texture.
+				return cartoon;
+			}
+			return cartoon;
+		}
+	}
 	
-	void Awake ()
+	void Start()
 	{
 		// Defines the size of each jigsaw piece.
 		rows = GetComponent<GridLayoutGroup>().constraintCount;
 		columns = rows;
-		cartoon = Textures [Random.Range (0, Textures.Length)]; // Grabs Random texture.
 
-		height = cartoon.height / rows;
-		width = cartoon.width / columns;
+		height = Cartoon.height / rows;
+		width = Cartoon.width / columns;
 
 		int count = 0;
 		for (int i = 0; i < columns; i++)
@@ -43,7 +55,7 @@ public class CreateJigawPieces : MonoBehaviour
 
 	GameObject CreatePiece(float xSpriteIndex, float ySpriteIndex)
 	{
-		Sprite newSprite = Sprite.Create(cartoon, new Rect(xSpriteIndex, ySpriteIndex, width, height), new Vector2());
+		Sprite newSprite = Sprite.Create(Cartoon, new Rect(xSpriteIndex, ySpriteIndex, width, height), new Vector2());
 		
 		GameObject piece = new GameObject();
 		Image newImage = piece.AddComponent<Image>();
