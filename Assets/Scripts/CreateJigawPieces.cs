@@ -40,7 +40,9 @@ public class CreateJigawPieces : MonoBehaviour
 		{
 			for (int j = 0; j < rows; j++)
 			{
-				CreatePiece(i*width, j*height).GetComponent<RectTransform>().SetParent(Slots[count].transform, false);
+				GameObject piece = CreatePiece(j*width, i*height);
+				piece.GetComponent<RectTransform>().SetParent(Slots[count].transform, false);
+				piece.name = "Piece " + count.ToString();
 				count++;
 			}
 		}

@@ -7,10 +7,10 @@ public class ChildLayout : MonoBehaviour
 	private int startChildCount;
 	private int previousChildCount;
 
+
 	void Start()
 	{
 		startChildCount = transform.childCount;
-		previousChildCount = startChildCount;
 	}
 
 	// Update is called once per frame
@@ -20,10 +20,9 @@ public class ChildLayout : MonoBehaviour
 		if (transform.childCount <= startChildCount)
 			return;
 
-		if (previousChildCount == transform.childCount)
+		if (GetComponent<Drop>().AtMaxChildNumber)
 			return;
 
-		previousChildCount = transform.childCount;
 		child = transform.GetChild(transform.childCount - 1);
 		
 		if (Drag.ItemBeingDragged == null)
