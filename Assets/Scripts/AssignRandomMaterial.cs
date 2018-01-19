@@ -3,7 +3,6 @@ using System.Collections;
 
 public class AssignRandomMaterial : MonoBehaviour
 {
-
 	public Material[] Materials;
 
 	// Use this for initialization

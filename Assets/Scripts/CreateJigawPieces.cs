@@ -48,9 +48,9 @@ public class CreateJigawPieces : MonoBehaviour
 		int flipACoin = Random.Range (0, 3);
 
 		if (flipACoin == 0)
-			GetComponent<GridLayoutGroup> ().startCorner = GridLayoutGroup.Corner.LowerRight;
+			GetComponent<GridLayoutGroup>().startCorner = GridLayoutGroup.Corner.LowerRight;
 		if (flipACoin == 1)
-			GetComponent<GridLayoutGroup> ().startCorner = GridLayoutGroup.Corner.UpperRight;
+			GetComponent<GridLayoutGroup>().startCorner = GridLayoutGroup.Corner.UpperRight;
 	}
 
 	GameObject CreatePiece(float xSpriteIndex, float ySpriteIndex)
