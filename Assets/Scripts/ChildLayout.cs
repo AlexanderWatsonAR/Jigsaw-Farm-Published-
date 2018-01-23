@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class ChildLayout : MonoBehaviour
 {
 	private Transform child;
 	private int startChildCount;
-	private int previousChildCount;
 
 
 	void Start()
@@ -20,7 +18,7 @@ public class ChildLayout : MonoBehaviour
 		if (transform.childCount <= startChildCount)
 			return;
 
-		if (GetComponent<Drop>().AtMaxChildNumber)
+		if (!GetComponent<Drop>().AtMaxChildNumber)
 			return;
 
 		child = transform.GetChild(transform.childCount - 1);

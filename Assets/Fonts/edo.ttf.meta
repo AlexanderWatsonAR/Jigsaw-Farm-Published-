@@ -3,16 +3,21 @@ guid: 6448c72ef804b83478aa5f4e95613ccf
 timeCreated: 1512415534
 licenseType: Free
 TrueTypeFontImporter:
-  serializedVersion: 2
-  fontSize: 300
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 100
   forceTextureCase: -1
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  use2xBehaviour: 0
-  fontNames: []
+  fontName: Edo
+  fontNames:
+  - Edo
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

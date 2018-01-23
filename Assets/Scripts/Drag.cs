@@ -32,6 +32,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
 		transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistanceToCamera)) + offsetToMouse;
 		transform.position = new Vector3 (transform.position.x, transform.position.y, ZPositionOnDrag);
+        Debug.Log(transform.position);
 	}
 	
 	public void OnEndDrag (PointerEventData eventData)
