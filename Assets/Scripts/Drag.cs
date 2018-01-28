@@ -5,8 +5,6 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 {
 	public static GameObject ItemBeingDragged;
 
-	public float ZPositionOnDrag;
-
 	Transform startParent;
 	Vector3 startPosition;
 	Vector3 offsetToMouse;
@@ -30,8 +28,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 		if(Input.touchCount > 1)
 			return;
 
-		transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistanceToCamera)) + offsetToMouse;
-		transform.position = new Vector3 (transform.position.x, transform.position.y, ZPositionOnDrag);
+		transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistanceToCamera - 0.1f)) + offsetToMouse;
         Debug.Log(transform.position);
 	}
 	

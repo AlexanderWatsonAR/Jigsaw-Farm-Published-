@@ -63,7 +63,6 @@ public class CreateJigawPieces : MonoBehaviour
 		Image newImage = piece.AddComponent<Image>();
 		newImage.sprite = newSprite;
 		piece.AddComponent<Drag>();
-		piece.GetComponent<Drag>().ZPositionOnDrag = -1;
 		piece.AddComponent<CanvasGroup>();
 		return piece;
 	}

@@ -9,7 +9,7 @@ public class AssignRandomShape : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		int index = Random.Range(0, Models.Length - 1);
+		int index = Random.Range(0, Models.Length);
 		Mesh model = Models[index];
 		gameObject.GetComponent<MeshFilter>().sharedMesh = model;
 		string tag = model.name;
