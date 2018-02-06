@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 
 public class CheckCompleted : MonoBehaviour
@@ -14,18 +13,24 @@ public class CheckCompleted : MonoBehaviour
 		foreach (GameObject slot in Slots)
 			if (slot.GetComponent<CheckCorrectPiece>().IsCorrectPiece)
 				count++;
-
 		if (count == Slots.Length)
 		{
 			GameObject.FindGameObjectWithTag ("Board").GetComponent<Image>().enabled = true;
-			GameObject.Find ("Animal Caption").GetComponent<Text>().enabled = true;
-		} 
-		else
-		{
-			GameObject.FindGameObjectWithTag ("Board").GetComponent<Image>().enabled = false;
-			GameObject.Find ("Animal Caption").GetComponent<Text>().enabled = false;
-		}
-
-
+			GameObject.Find ("Title").GetComponent<Text>().enabled = true;
+            GameObject caption = GameObject.Find("Caption");
+            caption.GetComponent<Text>().enabled = true;
+            if (caption.GetComponent<ChangeText>() != null)
+                caption.GetComponent<ChangeText>().enabled = false;
+            if (caption.GetComponent<Toggle>() != null)
+                caption.GetComponent<Toggle>().enabled = false;
+            caption.GetComponent<Text>().text = "Correct. Well Done!";
+            GameObject.Find("Button Next Puzzle").GetComponent<Text>().enabled = true;
+            foreach (GameObject slot in Slots)
+                if (slot.GetComponent<CheckCorrectPiece>().IsCorrectPiece)
+                {
+                    slot.GetComponent<CheckCorrectPiece>().enabled = false;
+                    this.enabled = false;
+                }
+        } 
 	}
 }

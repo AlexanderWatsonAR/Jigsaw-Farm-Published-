@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class CreateJigawPieces : MonoBehaviour
 {
-	public Texture2D[] Textures;
 	public GameObject[] Slots;
+    public Texture2D[] textures;
 
 	private Texture2D cartoon;
 	private int columns;
@@ -17,13 +16,14 @@ public class CreateJigawPieces : MonoBehaviour
 	{
 		get
 		{
-			if(cartoon == null)
-			{
-				cartoon = Textures [Random.Range (0, Textures.Length)]; // Grabs Random texture.
-				return cartoon;
-			}
+            if (cartoon == null)
+                cartoon = textures[BlocksSceneLoadData.NextTextureIndex];
 			return cartoon;
 		}
+        set
+        {
+            cartoon = value;
+        }
 	}
 	
 	void Start()
