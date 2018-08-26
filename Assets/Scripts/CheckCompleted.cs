@@ -16,8 +16,10 @@ public class CheckCompleted : MonoBehaviour
 		if (count == Slots.Length)
 		{
             GameObject board = GameObject.Find("Board");
-            board.GetComponent<GridLayoutGroup>().spacing = new Vector2();
-            board.GetComponent<Image>().enabled = true;
+            if (board.GetComponent<GridLayoutGroup>() != null)
+                board.GetComponent<GridLayoutGroup>().spacing = new Vector2();
+            if (board.GetComponent<Image>() != null)
+                board.GetComponent<Image>().enabled = true;
 			GameObject.Find("Title").GetComponent<Text>().enabled = true;
             GameObject caption = GameObject.Find("Caption");
             caption.GetComponent<Text>().enabled = true;
