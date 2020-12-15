@@ -5,6 +5,7 @@ public class AssignShape : MonoBehaviour
     public GameObject Parent;
     public GameObject Piece;
     public Mesh[] Models;
+    public GameObject Board;
 
     // Use this for initialization
     void Start()
@@ -17,7 +18,7 @@ public class AssignShape : MonoBehaviour
         Parent.tag = tag;
 
         Piece.GetComponent<MeshFilter>().sharedMesh = model;
-        Piece.GetComponent<MeshRenderer>().material = new Material(GameObject.FindGameObjectWithTag("Board").GetComponent<MeshRenderer>().material);
+        Piece.GetComponent<MeshRenderer>().material = new Material(Board.GetComponent<MeshRenderer>().material);
         Piece.tag = tag;
     }
 }

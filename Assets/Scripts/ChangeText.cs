@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 using System.Collections;
 
 public class ChangeText : MonoBehaviour 
@@ -7,8 +7,8 @@ public class ChangeText : MonoBehaviour
 	public void OnToggle(bool value)
 	{
 		if (value)
-			GetComponent<Text>().text = "Close Hint";
+			GetComponent<TextMeshProUGUI>().text = "Close Hint";
 		else
-			GetComponent<Text>().text = "Show Hint";
+			GetComponent<TextMeshProUGUI>().text = "Show Hint";
 	}
 }

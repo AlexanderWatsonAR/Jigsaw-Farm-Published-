@@ -4,6 +4,7 @@ public static class BlocksSceneLoadData
     private static int count;
     private static int[] textureIndexes;
     private static string[] sceneNameOrder;
+    private static bool isFadeInEnabled;
 
     public static int Count
     {
@@ -55,6 +56,18 @@ public static class BlocksSceneLoadData
         get
         {
             return textureIndexes[Count];
+        }
+    }
+
+    public static bool IsFadeInEnabled
+    {
+        get
+        {
+            return isFadeInEnabled;
+        }
+        set
+        {
+            isFadeInEnabled = value;
         }
     }
 }

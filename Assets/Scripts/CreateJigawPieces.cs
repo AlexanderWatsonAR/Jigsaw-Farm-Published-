@@ -5,6 +5,7 @@ public class CreateJigawPieces : MonoBehaviour
 {
 	public GameObject[] Slots;
     public Texture2D[] textures;
+    public GameObject canvas;
 
 	private Texture2D cartoon;
 	private int columns;
@@ -64,6 +65,8 @@ public class CreateJigawPieces : MonoBehaviour
 		newImage.sprite = newSprite;
 		piece.AddComponent<Drag>();
 		piece.AddComponent<CanvasGroup>();
+        piece.GetComponent<Drag>().canvas = canvas;
+        piece.layer = 5;
 		return piece;
 	}
 }

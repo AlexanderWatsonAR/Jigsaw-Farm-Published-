@@ -7,6 +7,6 @@ public class AssignMaterial : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        GetComponent<MeshRenderer>().material = new Material(Materials[ShapesLoadData.MaterialArrayIndex]);
+        GetComponent<MeshRenderer>().material = new Material(Materials[ShapesLoadData.MaterialIndexes[ShapesLoadData.MaterialArrayIndex]]);
     }
 }

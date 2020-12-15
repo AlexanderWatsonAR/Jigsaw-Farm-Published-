@@ -5,6 +5,21 @@ public static class ShapesLoadData
     private static int modelArrayIndex;
     private static int materialArraySize;
     private static int materialArrayIndex;
+    private static int[] materialIndexes;
+    private static bool isFadeInEnabled;
+
+    public static int[] MaterialIndexes
+    {
+        get
+        {
+            return materialIndexes;
+        }
+
+        set
+        {
+            materialIndexes = value;
+        }
+    }
 
     public static int ModelArraySize
     {
@@ -55,6 +70,17 @@ public static class ShapesLoadData
         set
         {
             materialArrayIndex = value;
+        }
+    }
+    public static bool IsFadeInEnabled
+    {
+        get
+        {
+            return isFadeInEnabled;
+        }
+        set
+        {
+            isFadeInEnabled = value;
         }
     }
 }

@@ -1,22 +1,27 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class SetText : MonoBehaviour
 {
+    public GameObject jigsawPieces;
+    public GameObject board;
+
     // Use this for initialization
     void Start()
     {
-        if (GameObject.FindGameObjectWithTag("JigsawPieces") != null) // 'Block' scene.
+        if (jigsawPieces != null) // 'Block' scene.
         { 
-            GameObject jigsawPieces = GameObject.FindGameObjectWithTag("JigsawPieces");
             CreateJigawPieces script = jigsawPieces.GetComponent<CreateJigawPieces>();
-            GetComponent<Text>().text = script.Cartoon.name;
+            GetComponent<TextMeshProUGUI>().text = script.Cartoon.name;
         }
         else // 'Shape' scene.
         {
-            string text = GameObject.FindGameObjectWithTag("Board").GetComponent<MeshRenderer>().material.name;
+            string text = board.GetComponent<MeshRenderer>().material.name;
             text = text.Remove(text.IndexOf('('));
-            GetComponent<Text>().text = text;
+            if(GetComponent<TextMeshProUGUI>() != null)
+                GetComponent<TextMeshProUGUI>().text = text;
+            else
+                GetComponent<TextMeshPro>().text = text;
         }
 	}
 }
