@@ -27,8 +27,12 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 		offsetToMouse = newPosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, zDistanceToCamera));
 		if(GetComponent<CanvasGroup>() != null)
 			GetComponent<CanvasGroup>().blocksRaycasts = false;
-        if (ItemBeingDragged.transform.parent.gameObject.GetComponent<CheckCorrectPiece>() != null)
-            ItemBeingDragged.transform.parent.gameObject.GetComponent<CheckCorrectPiece>().IsCorrectPiece = false;
+
+        if (ItemBeingDragged.transform.parent != null)
+        {
+            if (ItemBeingDragged.transform.parent.gameObject.GetComponent<CheckCorrectPiece>() != null)
+                ItemBeingDragged.transform.parent.gameObject.GetComponent<CheckCorrectPiece>().IsCorrectPiece = false;
+        }
 
     }
 	
