@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LockScreenOrientationHorizontal : MonoBehaviour
+public class StartScene : MonoBehaviour
 {
 
     // Use this for initialization
