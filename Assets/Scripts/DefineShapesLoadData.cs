@@ -4,7 +4,7 @@ public class DefineShapesLoadData : MonoBehaviour
 {
     public void DefineValues()
     {
-        ShapesLoadData.MaterialArraySize = 14;
+        ShapesLoadData.MaterialArraySize = 25;
         ShapesLoadData.MaterialIndexes = new int[ShapesLoadData.MaterialArraySize];
         ShapesLoadData.MaterialArrayIndex = -1;
         ShapesLoadData.ModelArraySize = 26;
@@ -16,5 +16,6 @@ public class DefineShapesLoadData : MonoBehaviour
         }
 
         ArrayAlgorithms.Shuffle.ShuffleArray(ShapesLoadData.MaterialIndexes, ShapesLoadData.MaterialIndexes.Length);
+        ShapesLoadData.IsFadeInEnabled = true;
     }
 }

@@ -53,6 +53,11 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         {
             transform.SetParent(startParent, true);
             transform.position = startPosition;
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "BlocksPuzzle2x2 WithHint" ||
+                UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "BlocksPuzzle3x3 WithHint")
+            {
+                transform.localPosition = Vector3.zero;
+            }
         }
 	}
 	

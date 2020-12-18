@@ -78,6 +78,11 @@ public class CheckCorrectPiece : MonoBehaviour
         if (count != totalNumberOfPieces)
             return;
 
+        foreach (Drag d in FindObjectsOfType<Drag>())
+        {
+            d.enabled = false;
+        }
+
         if (board.GetComponent<GridLayoutGroup>() != null)
         {
             board.GetComponent<GridLayoutGroup>().spacing = new Vector2();

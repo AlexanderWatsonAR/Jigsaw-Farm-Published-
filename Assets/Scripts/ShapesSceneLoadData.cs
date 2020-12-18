@@ -7,6 +7,20 @@ public static class ShapesLoadData
     private static int materialArrayIndex;
     private static int[] materialIndexes;
     private static bool isFadeInEnabled;
+    //private static string[] materialArrayNames;
+
+    //public static string[] MaterialArrayNames
+    //{
+    //    get
+    //    {
+    //        return materialArrayNames;
+    //    }
+
+    //    set
+    //    {
+    //        materialArrayNames = value;
+    //    }
+    //}
 
     public static int[] MaterialIndexes
     {
