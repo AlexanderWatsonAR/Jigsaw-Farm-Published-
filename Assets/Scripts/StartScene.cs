@@ -3,7 +3,6 @@ using System.Collections;
 
 public class StartScene : MonoBehaviour
 {
-
     // Use this for initialization
     void Awake()
     {
@@ -12,5 +11,6 @@ public class StartScene : MonoBehaviour
         Time.timeScale = 1.0f;
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
+        //UnityEngine.UDP.StoreService.Initialize(UDPListener.instance);
     }
 }

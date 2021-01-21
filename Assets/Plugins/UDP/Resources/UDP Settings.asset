@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -107981364, guid: 741884b37a0234d86bb740e55081cd5f, type: 3}
+  m_Name: UDP Settings
+  m_EditorClassIdentifier: 
+  UnityProjectID: 2e121e22-c914-40f7-876c-7872653ef639
+  UnityClientID: EVLRW1mKErJHdLYkGuGnqQ
+  UnityClientKey: 1ixHQf5F6U8Inb9_hdVyCPXe7seK2ck895NI9Cg1Awo
+  UnityClientRSAPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp3dLpI5Z1CzduF+Bx6z/ot67yzMA9amTnX5FupAZgp6PDzYmnSQUaXkrgImNloRGTPKvner4yPglk6AxmP/UV2JSysAASeoOHNyaUOywVDMAR5VI9R8fMaNcUxk6ilBA4ubRe4xeKCUEEKUWQE/HVaUCzOLQ6oPTDEAplm0L3/bMGdYg9DFIofGsbHTjVio53+aYPVAjGF3t2Kqg95XWLV+IdfTTAjEa5Hyk7DS4r2NNQm5ngKR18NwcaDUWb7GIa0ro84DZtK1d+lN5nsyi5WJBikQ8NYKvwsPHxtkH2lr7jgWS9fLFT/gpxUxDnbvI6PWlorsHYGtTl26ZWR6eqQIDAQAB
+  AppName: Jigsaw Farm
+  AppSlug: afebe407-7fc6-4c80-bd8d-c865ffad9c33
+  AppItemId: 5fdf63c6b65090002556f41f
+  Permission: 

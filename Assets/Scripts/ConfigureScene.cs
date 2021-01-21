@@ -5,6 +5,7 @@ public class ConfigureScene : MonoBehaviour
 {
     void Awake()
     {
+        //return;
         float height = Screen.currentResolution.height;
         float width = Screen.currentResolution.width;
 
