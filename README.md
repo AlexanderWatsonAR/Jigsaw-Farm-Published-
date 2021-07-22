@@ -7,8 +7,8 @@ The app comprises of three games:
 - Shapes. Match the shapes to the slot.
 - Jigsaw. Assemble the jigsaw
 
-Avaiable on 
+Available on: 
 
-Android: https://play.google.com/store/apps/details?id=com.OnlyInvalid.JigsawFarm&hl=en_US&gl=US
+Android - https://play.google.com/store/apps/details?id=com.OnlyInvalid.JigsawFarm&hl=en_US&gl=US
 
-iOS: https://apps.apple.com/gb/app/jigsaw-farm-fun/id1545750277
+iOS - https://apps.apple.com/gb/app/jigsaw-farm-fun/id1545750277
